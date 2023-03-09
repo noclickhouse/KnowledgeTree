@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Vavilon</string>
+
+    <string name="click_for_add_tree">Click for add tree</string>
 </resources>
