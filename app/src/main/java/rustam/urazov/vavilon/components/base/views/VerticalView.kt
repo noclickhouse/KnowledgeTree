@@ -1,4 +1,4 @@
-package rustam.urazov.vavilon.components.views
+package rustam.urazov.vavilon.components.base.views
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.ColumnScope

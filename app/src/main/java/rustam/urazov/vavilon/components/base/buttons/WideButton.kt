@@ -1,4 +1,4 @@
-package rustam.urazov.vavilon.components.buttons
+package rustam.urazov.vavilon.components.base.buttons
 
 import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxWidth
