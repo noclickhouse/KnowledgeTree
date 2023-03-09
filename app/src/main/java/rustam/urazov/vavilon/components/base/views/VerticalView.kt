@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.material.Button
 import androidx.compose.material.ButtonDefaults
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
@@ -23,6 +24,6 @@ fun VerticalView(
         shape = shape,
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor)
     ) {
-        Column(content = content)
+        Column(horizontalAlignment = Alignment.CenterHorizontally, content = content)
     }
 }
