@@ -15,7 +15,6 @@ fun TreesList(trees: List<TreeInfoModel>) {
             TreeView(
                 treeName = tree.name,
                 treeImage = tree.image,
-                treeContentDescription = "",
                 progress = tree.progress
             ) {
 
