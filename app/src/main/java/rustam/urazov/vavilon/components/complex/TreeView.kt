@@ -45,7 +45,7 @@ fun TreeView(
                 modifier = Modifier
                     .height(height - 136.dp)
                     .background(
-                        color = MaterialTheme.colors.primary,
+                        color = MaterialTheme.colors.background,
                         shape = RoundedCornerShape(16.dp)
                     ),
                 colorFilter = ColorFilter.tint(MaterialTheme.colors.secondary)
