@@ -38,10 +38,12 @@ fun TreeView(
             WideImage(
                 imageId = R.drawable.add_24,
                 contentDescription = "",
-                modifier = Modifier.height(height - 72.dp) .background(
-                    color = Color(0xdc, 0x89, 0xed),
-                    shape = RoundedCornerShape(16.dp)
-                ),
+                modifier = Modifier
+                    .height(height - 136.dp)
+                    .background(
+                        color = Color(0xdc, 0x89, 0xed),
+                        shape = RoundedCornerShape(16.dp)
+                    ),
                 colorFilter = ColorFilter.tint(color)
             )
             Text(
@@ -49,6 +51,7 @@ fun TreeView(
                 color = color,
                 fontSize = 24.sp
             )
+            ProgressBar(progress = 0.6f)
         }
     }
 }
