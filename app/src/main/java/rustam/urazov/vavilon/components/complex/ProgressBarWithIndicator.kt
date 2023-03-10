@@ -41,7 +41,7 @@ fun ProgressBarWithIndicator(
 
 @Composable
 @Preview
-fun ProgressBarPreview() {
+fun ProgressBarWithIndicatorPreview() {
     VavilonTheme {
         ProgressBarWithIndicator(0.6f)
     }
