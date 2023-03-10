@@ -25,7 +25,6 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 fun TreeView(
     treeName: String,
     @DrawableRes treeImage: Int,
-    treeContentDescription: String,
     progress: Float,
     onClick: () -> Unit
 ) {
@@ -44,7 +43,6 @@ fun TreeView(
         ) {
             WideImage(
                 imageId = treeImage,
-                contentDescription = treeContentDescription,
                 modifier = Modifier
                     .height(height - 136.dp)
                     .background(
@@ -67,7 +65,7 @@ fun TreeView(
 @Preview
 fun TreeViewPreview() {
     VavilonTheme {
-        TreeView("asd", R.drawable.add_24, "", 0.6f) {
+        TreeView("asd", R.drawable.add_24, 0.6f) {
 
         }
     }
