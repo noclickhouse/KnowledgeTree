@@ -26,9 +26,10 @@ fun TreeView(
     treeName: String,
     @DrawableRes treeImage: Int,
     progress: Float,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
-    BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
+    BoxWithConstraints(modifier = modifier.fillMaxSize()) {
         val height = maxHeight
         VerticalView(
             modifier = Modifier.fillMaxSize(),
