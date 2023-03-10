@@ -21,7 +21,7 @@ fun TreesList(trees: List<TreeInfoModel>) {
             ) {
 
             }
-            AddTreeButton {
+            AddTreeButton(modifier = Modifier.fillParentMaxSize()) {
 
             }
         }
