@@ -21,10 +21,11 @@ import rustam.urazov.vavilon.components.models.ContentPadding
 
 @Composable
 fun AddTreeButton(
+    modifier: Modifier = Modifier,
     onClick: () -> Unit
 ) {
     VerticalView(
-        modifier = Modifier.fillMaxSize(),
+        modifier = modifier.fillMaxSize(),
         backgroundColor = Color(0xed, 0x89, 0xcb),
         shape = RoundedCornerShape(16.dp),
         onClick = onClick,
