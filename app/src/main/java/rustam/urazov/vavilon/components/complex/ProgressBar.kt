@@ -1,6 +1,5 @@
 package rustam.urazov.vavilon.components.complex
 
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -12,6 +11,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import rustam.urazov.vavilon.components.base.common.BaseProgressBar
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
@@ -23,6 +23,10 @@ fun ProgressBar(
             .fillMaxWidth()
             .clip(shape = RoundedCornerShape(32.dp))
     ) {
+        BaseProgressBar(
+            progress = progress,
+            modifier = Modifier.matchParentSize()
+        )
         Text(
             text = "${(progress * 100).toInt()}%",
             modifier = Modifier
