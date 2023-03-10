@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import rustam.urazov.vavilon.R
 import rustam.urazov.vavilon.components.base.views.VerticalView
+import rustam.urazov.vavilon.components.models.ContentPadding
 
 @Composable
 fun AddTreeButton(
@@ -25,7 +26,11 @@ fun AddTreeButton(
         modifier = Modifier.fillMaxSize(),
         backgroundColor = Color(0xed, 0x89, 0xcb),
         shape = RoundedCornerShape(16.dp),
-        onClick = onClick
+        onClick = onClick,
+        contentPadding = ContentPadding(
+            vertical = 8.dp,
+            horizontal = 16.dp
+        )
     ) {
         val color = Color(0x89, 0xed, 0xaa)
         Image(
