@@ -11,6 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.unit.Dp
+import rustam.urazov.vavilon.components.models.ContentPadding
 
 @Composable
 fun VerticalView(
@@ -18,7 +19,7 @@ fun VerticalView(
     backgroundColor: Color,
     shape: Shape,
     onClick: () -> Unit,
-    contentPadding: Dp,
+    contentPadding: ContentPadding,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Button(
@@ -28,7 +29,10 @@ fun VerticalView(
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor)
     ) {
         Column(
-            modifier = Modifier.padding(contentPadding),
+            modifier = Modifier.padding(
+                vertical = contentPadding.vertical,
+                horizontal = contentPadding.horizontal
+            ),
             horizontalAlignment = Alignment.CenterHorizontally,
             content = content
         )
