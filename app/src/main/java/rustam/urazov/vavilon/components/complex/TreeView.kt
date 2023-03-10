@@ -38,14 +38,14 @@ fun TreeView(
             WideImage(
                 imageId = R.drawable.add_24,
                 contentDescription = "",
-                modifier = Modifier.height(height) .background(
+                modifier = Modifier.height(height - 72.dp) .background(
                     color = Color(0xdc, 0x89, 0xed),
                     shape = RoundedCornerShape(16.dp)
                 ),
                 colorFilter = ColorFilter.tint(color)
             )
             Text(
-                text = "asd",
+                text = "ASD",
                 color = color,
                 fontSize = 24.sp
             )
