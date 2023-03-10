@@ -26,6 +26,7 @@ fun TreeView(
     treeName: String,
     @DrawableRes treeImage: Int,
     treeContentDescription: String,
+    progress: Float,
     onClick: () -> Unit
 ) {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -57,7 +58,7 @@ fun TreeView(
                 color = MaterialTheme.colors.secondary,
                 fontSize = 24.sp
             )
-            ProgressBarWithIndicator(progress = 0.6f)
+            ProgressBarWithIndicator(progress = progress)
         }
     }
 }
@@ -66,7 +67,7 @@ fun TreeView(
 @Preview
 fun TreeViewPreview() {
     VavilonTheme {
-        TreeView("asd", R.drawable.add_24, "") {
+        TreeView("asd", R.drawable.add_24, "", 0.6f) {
 
         }
     }
