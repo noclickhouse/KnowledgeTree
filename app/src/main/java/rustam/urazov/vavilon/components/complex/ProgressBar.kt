@@ -23,21 +23,6 @@ fun ProgressBar(
             .fillMaxWidth()
             .clip(shape = RoundedCornerShape(32.dp))
     ) {
-        Row(modifier = Modifier
-            .fillMaxWidth()
-            .matchParentSize()) {
-            Column(
-                modifier = Modifier
-                    .fillMaxHeight()
-                    .fillMaxWidth(progress)
-                    .background(MaterialTheme.colors.secondary)
-            ) {}
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colors.background)
-            ) {}
-        }
         Text(
             text = "${(progress * 100).toInt()}%",
             modifier = Modifier
