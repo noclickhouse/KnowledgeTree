@@ -11,13 +11,12 @@ import androidx.compose.ui.res.painterResource
 @Composable
 fun WideImage(
     @DrawableRes imageId: Int,
-    contentDescription: String,
     modifier: Modifier = Modifier,
     colorFilter: ColorFilter
 ) {
     Image(
         painter = painterResource(id = imageId),
-        contentDescription = contentDescription,
+        contentDescription = null,
         modifier = modifier.fillMaxWidth(),
         colorFilter = colorFilter
     )
