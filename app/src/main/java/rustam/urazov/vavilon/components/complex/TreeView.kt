@@ -1,5 +1,6 @@
 package rustam.urazov.vavilon.components.complex
 
+import androidx.annotation.DrawableRes
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.fillMaxSize
@@ -21,6 +22,9 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
 fun TreeView(
+    treeName: String,
+    @DrawableRes treeImage: Int,
+    treeContentDescription: String,
     onClick: () -> Unit
 ) {
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
@@ -36,8 +40,8 @@ fun TreeView(
             )
         ) {
             WideImage(
-                imageId = R.drawable.add_24,
-                contentDescription = "",
+                imageId = treeImage,
+                contentDescription = treeContentDescription,
                 modifier = Modifier
                     .height(height - 136.dp)
                     .background(
@@ -47,7 +51,7 @@ fun TreeView(
                 colorFilter = ColorFilter.tint(MaterialTheme.colors.secondary)
             )
             Text(
-                text = "ASD",
+                text = treeName,
                 color = MaterialTheme.colors.secondary,
                 fontSize = 24.sp
             )
@@ -60,7 +64,7 @@ fun TreeView(
 @Preview
 fun TreeViewPreview() {
     VavilonTheme {
-        TreeView {
+        TreeView("asd", R.drawable.add_24, "") {
 
         }
     }
