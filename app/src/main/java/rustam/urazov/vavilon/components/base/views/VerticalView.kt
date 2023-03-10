@@ -19,6 +19,7 @@ fun VerticalView(
     shape: Shape,
     onClick: () -> Unit,
     contentPadding: ContentPadding,
+    verticalAlignment: Alignment.Vertical,
     content: @Composable ColumnScope.() -> Unit
 ) {
     Button(
@@ -33,7 +34,7 @@ fun VerticalView(
                     vertical = contentPadding.vertical,
                     horizontal = contentPadding.horizontal
                 )
-                .align(alignment = Alignment.Top),
+                .align(alignment = verticalAlignment),
             horizontalAlignment = Alignment.CenterHorizontally,
             content = content
         )
