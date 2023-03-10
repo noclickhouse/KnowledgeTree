@@ -9,6 +9,7 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.graphics.ColorFilter
@@ -34,6 +35,7 @@ fun TreeView(
             backgroundColor = MaterialTheme.colors.primary,
             shape = RoundedCornerShape(16.dp),
             onClick = onClick,
+            verticalAlignment = Alignment.Top,
             contentPadding = ContentPadding(
                 vertical = 8.dp,
                 horizontal = 16.dp
