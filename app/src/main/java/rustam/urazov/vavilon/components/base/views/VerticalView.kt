@@ -28,10 +28,12 @@ fun VerticalView(
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor)
     ) {
         Column(
-            modifier = Modifier.padding(
-                vertical = contentPadding.vertical,
-                horizontal = contentPadding.horizontal
-            ),
+            modifier = Modifier
+                .padding(
+                    vertical = contentPadding.vertical,
+                    horizontal = contentPadding.horizontal
+                )
+                .align(alignment = Alignment.Top),
             horizontalAlignment = Alignment.CenterHorizontally,
             content = content
         )
