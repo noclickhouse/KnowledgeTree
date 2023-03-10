@@ -51,7 +51,7 @@ fun TreeView(
                 color = color,
                 fontSize = 24.sp
             )
-            ProgressBar(progress = 0.6f)
+            ProgressBarWithIndicator(progress = 0.6f)
         }
     }
 }

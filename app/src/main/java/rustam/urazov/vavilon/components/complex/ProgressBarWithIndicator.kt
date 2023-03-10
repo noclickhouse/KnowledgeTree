@@ -15,7 +15,7 @@ import rustam.urazov.vavilon.components.base.common.BaseProgressBar
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
-fun ProgressBar(
+fun ProgressBarWithIndicator(
     progress: Float
 ) {
     Box(
@@ -43,6 +43,6 @@ fun ProgressBar(
 @Preview
 fun ProgressBarPreview() {
     VavilonTheme {
-        ProgressBar(0.6f)
+        ProgressBarWithIndicator(0.6f)
     }
 }
