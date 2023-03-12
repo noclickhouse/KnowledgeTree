@@ -2,12 +2,11 @@ package rustam.urazov.vavilon.components.base.buttons
 
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import rustam.urazov.vavilon.R
+import rustam.urazov.vavilon.components.base.texts.LargeText
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
@@ -22,7 +21,7 @@ fun WideButtonWithText(
         modifier = modifier,
         enabled = enabled
     ) {
-        Text(text = stringResource(id = textId))
+        LargeText(textId = textId)
     }
 }
 
@@ -38,7 +37,7 @@ fun WideButtonWithText(
         modifier = modifier,
         enabled = enabled
     ) {
-        Text(text = text)
+        LargeText(text = text)
     }
 }
 
