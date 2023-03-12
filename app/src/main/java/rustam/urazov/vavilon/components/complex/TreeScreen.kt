@@ -23,7 +23,7 @@ fun TreeScreen() {
             ) {
 
             }
-            AddButton()
+            AddButton {  }
         }
     }
 }

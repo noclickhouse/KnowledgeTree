@@ -11,8 +11,8 @@ fun Branch(
     onClick: () -> Unit,
 ) {
     WideButtonWithText(
-        onClick = onClick,
-        text = text
+        text = text,
+        onClick = onClick
     )
 }
 

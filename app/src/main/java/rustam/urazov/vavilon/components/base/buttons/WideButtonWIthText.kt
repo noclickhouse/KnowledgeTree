@@ -11,10 +11,10 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
 fun WideButtonWithText(
+    @StringRes textId: Int,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    @StringRes textId: Int
+    enabled: Boolean = true
 ) {
     WideButton(
         onClick = onClick,
@@ -27,10 +27,10 @@ fun WideButtonWithText(
 
 @Composable
 fun WideButtonWithText(
+    text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean = true,
-    text: String
+    enabled: Boolean = true
 ) {
     WideButton(
         onClick = onClick,

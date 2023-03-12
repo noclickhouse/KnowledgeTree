@@ -7,10 +7,12 @@ import rustam.urazov.vavilon.components.base.buttons.WideButtonWithText
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
-fun AddButton() {
+fun AddButton(
+    onClick: () -> Unit
+) {
     WideButtonWithText(
-        onClick = {  },
-        textId = R.string.add
+        textId = R.string.add,
+        onClick = onClick,
     )
 }
 
@@ -18,6 +20,6 @@ fun AddButton() {
 @Preview
 fun AddButtonPreview() {
     VavilonTheme {
-        AddButton()
+        AddButton {  }
     }
 }
