@@ -11,7 +11,7 @@ import rustam.urazov.vavilon.components.base.buttons.WideButtonWithText
 fun AddButton() {
     WideButtonWithText(
         onClick = { },
-        shape = RoundedCornerShape(16.dp),
+        //shape = RoundedCornerShape(16.dp),
         textId = R.string.add
     )
 }
