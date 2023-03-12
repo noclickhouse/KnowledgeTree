@@ -1,9 +1,6 @@
 package rustam.urazov.vavilon.components.complex
 
-import androidx.compose.foundation.layout.BoxWithConstraints
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
@@ -17,7 +14,9 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 fun TreeScreen(
     branches: List<String>
 ) {
-    BoxWithConstraints {
+    BoxWithConstraints(
+        modifier = Modifier.padding(16.dp)
+    ) {
         val height = maxHeight
         Column {
             LazyColumn(
