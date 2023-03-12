@@ -1,7 +1,7 @@
 package rustam.urazov.vavilon.components.base.texts
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Colum
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
