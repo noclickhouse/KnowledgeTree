@@ -1,8 +1,7 @@
 package rustam.urazov.vavilon.components.base.texts
 
 import androidx.annotation.StringRes
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.Colum
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -24,7 +23,7 @@ fun LargeText(
 ) {
     Text(
         text = text,
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         color = color,
         fontSize = 24.sp,
         textAlign = textAlign
@@ -40,7 +39,7 @@ fun LargeText(
 ) {
     Text(
         text = stringResource(id = textId),
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier,
         color = color,
         fontSize = 24.sp,
         textAlign = textAlign
