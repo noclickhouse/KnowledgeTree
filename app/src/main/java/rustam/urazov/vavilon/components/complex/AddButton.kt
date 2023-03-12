@@ -6,14 +6,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import rustam.urazov.vavilon.components.base.buttons.WideButton
+import rustam.urazov.vavilon.components.base.buttons.WideButtonWithText
 
 @Composable
 fun AddButton() {
-    WideButton(
-        onClick = {  }, shape = RoundedCornerShape(16.dp)
-    ) {
-        Text(text = "Add")
-    }
+    WideButtonWithText(
+        onClick = { },
+        enabled = true,
+        shape = RoundedCornerShape(16.dp),
+        text = "Add"
+    )
 }
 
 @Composable
