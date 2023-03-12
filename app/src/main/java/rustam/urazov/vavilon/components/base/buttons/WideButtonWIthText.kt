@@ -11,7 +11,7 @@ import androidx.compose.ui.res.stringResource
 fun WideButtonWithText(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean,
+    enabled: Boolean = true,
     shape: Shape,
     @StringRes textId: Int
 ) {
@@ -29,7 +29,7 @@ fun WideButtonWithText(
 fun WideButtonWithText(
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
-    enabled: Boolean,
+    enabled: Boolean = true,
     shape: Shape,
     text: String
 ) {
