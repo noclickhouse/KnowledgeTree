@@ -9,6 +9,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
 fun TreeScreen() {
@@ -30,5 +31,7 @@ fun TreeScreen() {
 @Composable
 @Preview
 fun TreeScreenPreview() {
-    TreeScreen()
+    VavilonTheme {
+        TreeScreen()
+    }
 }
