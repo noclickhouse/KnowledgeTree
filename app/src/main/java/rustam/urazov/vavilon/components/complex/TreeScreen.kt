@@ -15,7 +15,6 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
-import rustam.urazov.vavilon.viewmodels.BranchView
 import rustam.urazov.vavilon.viewmodels.BranchesViewModel
 
 @Composable
@@ -25,7 +24,10 @@ fun TreeScreen(
     id: Int
 ) {
     val branches by viewModel.branches.collectAsState()
+
     viewModel.getBranches(id)
+
+    val dialogState by viewModel.addDialogState.collectAsState()
 
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
@@ -46,10 +48,12 @@ fun TreeScreen(
                 }
             }
             AddButton {
-                viewModel.addBranch(BranchView(0, "asd", id))
+                viewModel.addBranch(id)
             }
         }
     }
+
+    AddView(viewModel = viewModel, dialogState = dialogState)
 }
 
 @Composable
