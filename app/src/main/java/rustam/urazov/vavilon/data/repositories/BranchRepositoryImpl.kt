@@ -1,9 +1,19 @@
 package rustam.urazov.vavilon.data.repositories
 
+import rustam.urazov.vavilon.data.repositories.storage.BranchEntity
+import rustam.urazov.vavilon.data.repositories.storage.BranchesDao
+
 class BranchRepositoryImpl(
-    private val branchService: BranchService
+    private val branchesDao: BranchesDao
 ) : BranchRepository {
 
-    override suspend fun getBranches(root: Branch): List<Branch> = branchService.getBranches(root)
+    override suspend fun getBranches(root: Int?): List<Branch> =
+        branchesDao.getBranches(root).map { map(it) }
+
+    private fun map(branch: BranchEntity): Branch = Branch(
+        id = branch.id,
+        title = branch.title,
+        parentId = branch.parentId
+    )
 
 }
