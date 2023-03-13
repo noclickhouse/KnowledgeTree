@@ -8,12 +8,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import rustam.urazov.vavilon.components.models.BranchModel
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
+import rustam.urazov.vavilon.viewmodels.BranchView
 
 @Composable
 fun TreeScreen(
-    branches: List<BranchModel>
+    branches: List<BranchView>
 ) {
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
@@ -43,8 +43,8 @@ fun TreeScreenPreview() {
     VavilonTheme {
         TreeScreen(
             listOf(
-                BranchModel(1, "asd", null),
-                BranchModel(2, "asd", null)
+                BranchView(1, "asd", null),
+                BranchView(2, "asd", null)
             )
         )
     }

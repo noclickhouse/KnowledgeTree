@@ -2,8 +2,10 @@ package rustam.urazov.vavilon.data.repositories
 
 import rustam.urazov.vavilon.data.repositories.storage.BranchEntity
 import rustam.urazov.vavilon.data.repositories.storage.BranchesDao
+import javax.inject.Inject
 
-class BranchRepositoryImpl(
+class BranchRepositoryImpl
+@Inject constructor(
     private val branchesDao: BranchesDao
 ) : BranchRepository {
 

@@ -9,9 +9,11 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import rustam.urazov.vavilon.data.repositories.Branch
 import rustam.urazov.vavilon.data.repositories.BranchRepository
+import javax.inject.Inject
 
 @HiltViewModel
-class BranchesViewModel(
+class BranchesViewModel
+@Inject constructor(
     private val branchRepository: BranchRepository
 ) : ViewModel() {
 
