@@ -12,16 +12,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.rememberNavController
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 import rustam.urazov.vavilon.viewmodels.BranchView
 import rustam.urazov.vavilon.viewmodels.BranchesViewModel
 
 @Composable
 fun TreeScreen(
-    viewModel: BranchesViewModel
+    navController: NavHostController,
+    viewModel: BranchesViewModel,
+    id: Int
 ) {
     val branches by viewModel.branches.collectAsState()
-    viewModel.getBranches(-1)
+    viewModel.getBranches(id)
 
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
@@ -37,12 +41,12 @@ fun TreeScreen(
             ) {
                 items(branches) { branch ->
                     Branch(text = branch.title) {
-
+                        navController.navigate("branch/${branch.id}")
                     }
                 }
             }
             AddButton {
-                viewModel.addBranch(BranchView("asd", -1))
+                viewModel.addBranch(BranchView(0, "asd", id))
             }
         }
     }
@@ -53,6 +57,6 @@ fun TreeScreen(
 fun TreeScreenPreview() {
     VavilonTheme {
         val viewModel: BranchesViewModel = hiltViewModel()
-        TreeScreen(viewModel)
+        TreeScreen(rememberNavController(), viewModel, -1)
     }
 }

@@ -15,6 +15,7 @@ class BranchRepositoryImpl
     override suspend fun addBranch(branch: Branch) = branchesDao.addBranch(branch.toEntity())
 
     private fun map(branch: BranchEntity): Branch = Branch(
+        id = branch.id,
         title = branch.title,
         parentId = branch.parentId
     )

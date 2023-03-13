@@ -34,6 +34,7 @@ class BranchesViewModel
     }
 
     private fun map(branch: Branch): BranchView = BranchView(
+        id = branch.id,
         title = branch.title,
         parentId = branch.parentId
     )
