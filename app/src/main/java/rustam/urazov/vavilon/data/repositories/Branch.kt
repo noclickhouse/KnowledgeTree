@@ -4,7 +4,7 @@ import rustam.urazov.vavilon.data.repositories.storage.BranchEntity
 
 data class Branch(
     val title: String,
-    val parentId: Int?
+    val parentId: Int
 )
 
 fun Branch.toEntity(): BranchEntity = BranchEntity(

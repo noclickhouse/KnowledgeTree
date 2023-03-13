@@ -21,7 +21,7 @@ fun TreeScreen(
     viewModel: BranchesViewModel
 ) {
     val branches by viewModel.branches.collectAsState()
-    viewModel.getBranches(null)
+    viewModel.getBranches(-1)
 
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
@@ -42,7 +42,7 @@ fun TreeScreen(
                 }
             }
             AddButton {
-                viewModel.addBranch(BranchView("asd", null))
+                viewModel.addBranch(BranchView("asd", -1))
             }
         }
     }

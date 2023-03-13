@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 data class BranchEntity(
     @PrimaryKey(autoGenerate = true) @ColumnInfo(name = "id") val id: Int = 0,
     @ColumnInfo(name = "title") val title: String,
-    @ColumnInfo(name = "parentId") val parentId: Int?
+    @ColumnInfo(name = "parentId") val parentId: Int
 ) {
 
     companion object {
@@ -18,7 +18,6 @@ data class BranchEntity(
 }
 
 fun BranchEntity.Companion.empty(): BranchEntity = BranchEntity(
-    id = 0,
     title = "",
-    parentId = null
+    parentId = -1
 )

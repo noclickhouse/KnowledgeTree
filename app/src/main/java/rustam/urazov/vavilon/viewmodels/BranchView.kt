@@ -4,7 +4,7 @@ import rustam.urazov.vavilon.data.repositories.Branch
 
 data class BranchView(
     val title: String,
-    val parentId: Int?
+    val parentId: Int
 )
 
 fun BranchView.toModel(): Branch = Branch(
