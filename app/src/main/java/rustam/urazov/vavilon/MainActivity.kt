@@ -3,8 +3,6 @@ package rustam.urazov.vavilon
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import rustam.urazov.vavilon.components.complex.TreeScreen
@@ -18,8 +16,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             VavilonTheme {
                 val treeScreenViewModel: BranchesViewModel = hiltViewModel()
-                val branches by treeScreenViewModel.branches.collectAsState()
-                TreeScreen(branches = branches)
+                TreeScreen(viewModel = treeScreenViewModel)
             }
         }
     }

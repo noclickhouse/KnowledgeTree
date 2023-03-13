@@ -26,8 +26,14 @@ class BranchesViewModel
         }
     }
 
+    fun addBranch(branch: BranchView) {
+        viewModelScope.launch {
+            branchRepository.addBranch(branch.toModel())
+            getBranches(branch.parentId)
+        }
+    }
+
     private fun map(branch: Branch): BranchView = BranchView(
-        id = branch.id,
         title = branch.title,
         parentId = branch.parentId
     )

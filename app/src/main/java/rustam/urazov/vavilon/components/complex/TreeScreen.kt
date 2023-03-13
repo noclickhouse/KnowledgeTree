@@ -3,18 +3,26 @@ package rustam.urazov.vavilon.components.complex
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
 import rustam.urazov.vavilon.viewmodels.BranchView
+import rustam.urazov.vavilon.viewmodels.BranchesViewModel
 
 @Composable
 fun TreeScreen(
-    branches: List<BranchView>
+    viewModel: BranchesViewModel
 ) {
+    val branches by viewModel.branches.collectAsState()
+    viewModel.getBranches(null)
+
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
     ) {
@@ -24,6 +32,7 @@ fun TreeScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(height - 60.dp),
+                state = rememberLazyListState(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 items(branches) { branch ->
@@ -32,7 +41,9 @@ fun TreeScreen(
                     }
                 }
             }
-            AddButton { }
+            AddButton {
+                viewModel.addBranch(BranchView("asd", null))
+            }
         }
     }
 }
@@ -41,11 +52,7 @@ fun TreeScreen(
 @Preview
 fun TreeScreenPreview() {
     VavilonTheme {
-        TreeScreen(
-            listOf(
-                BranchView(1, "asd", null),
-                BranchView(2, "asd", null)
-            )
-        )
+        val viewModel: BranchesViewModel = hiltViewModel()
+        TreeScreen(viewModel)
     }
 }
