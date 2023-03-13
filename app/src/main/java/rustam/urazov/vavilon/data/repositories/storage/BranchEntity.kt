@@ -15,3 +15,9 @@ data class BranchEntity(
     }
 
 }
+
+fun BranchEntity.Companion.empty(): BranchEntity = BranchEntity(
+    id = 0,
+    title = "",
+    parentId = null
+)

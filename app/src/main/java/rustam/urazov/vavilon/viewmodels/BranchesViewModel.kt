@@ -2,6 +2,7 @@ package rustam.urazov.vavilon.viewmodels
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -9,6 +10,7 @@ import kotlinx.coroutines.launch
 import rustam.urazov.vavilon.data.repositories.Branch
 import rustam.urazov.vavilon.data.repositories.BranchRepository
 
+@HiltViewModel
 class BranchesViewModel(
     private val branchRepository: BranchRepository
 ) : ViewModel() {
