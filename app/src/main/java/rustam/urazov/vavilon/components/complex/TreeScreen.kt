@@ -15,6 +15,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import rustam.urazov.vavilon.ui.theme.VavilonTheme
+import rustam.urazov.vavilon.viewmodels.BranchView
 import rustam.urazov.vavilon.viewmodels.BranchesViewModel
 
 @Composable
@@ -53,7 +54,19 @@ fun TreeScreen(
         }
     }
 
-    AddView(viewModel = viewModel, dialogState = dialogState)
+    AddView(
+        dialogState = dialogState,
+        onTextChange = { viewModel.onDialogTextChanged(id, it) },
+        onSave = {
+            viewModel.saveBranch(
+                BranchView(
+                    title = it,
+                    parentId = id
+                )
+            )
+        },
+        onClose = { viewModel.closeDialog() }
+    )
 }
 
 @Composable
