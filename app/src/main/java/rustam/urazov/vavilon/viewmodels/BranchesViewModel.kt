@@ -8,6 +8,7 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import rustam.urazov.vavilon.components.models.AddDialogState
+import rustam.urazov.vavilon.core.empty
 import rustam.urazov.vavilon.data.repositories.Branch
 import rustam.urazov.vavilon.data.repositories.BranchRepository
 import javax.inject.Inject
@@ -43,7 +44,7 @@ class BranchesViewModel
     }
 
     private fun openDialog(root: Int) {
-        mutableAddDialogState.value = AddDialogState.Open(root, "")
+        mutableAddDialogState.value = AddDialogState.Open(root, String.empty())
     }
 
     fun onDialogTextChanged(root: Int, text: String) {
