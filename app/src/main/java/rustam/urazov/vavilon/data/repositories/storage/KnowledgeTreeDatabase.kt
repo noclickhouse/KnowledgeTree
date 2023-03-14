@@ -3,7 +3,7 @@ package rustam.urazov.vavilon.data.repositories.storage
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
-@Database(entities = [BranchEntity::class], version = 1)
+@Database(entities = [BranchEntity::class, LeafEntity::class], version = 1)
 abstract class KnowledgeTreeDatabase : RoomDatabase() {
 
     companion object {
