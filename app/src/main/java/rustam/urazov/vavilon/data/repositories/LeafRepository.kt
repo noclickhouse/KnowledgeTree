@@ -6,4 +6,6 @@ interface LeafRepository {
 
     suspend fun addLeaf(leaf: LeafModel)
 
+    suspend fun updateLeaf(leaf: LeafModel)
+
 }

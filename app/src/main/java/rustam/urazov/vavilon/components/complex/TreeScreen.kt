@@ -49,7 +49,14 @@ fun TreeScreen(
                 }
                 items(leafs) { leaf ->
                     LeafItem(text = leaf.content, isCompleted = leaf.isCompleted) {
-
+                        viewModel.updateLeaf(
+                            Branch.LeafView(
+                                id = leaf.id,
+                                content = leaf.content,
+                                isCompleted = !leaf.isCompleted,
+                                parentId = leaf.parentId
+                            )
+                        )
                     }
                 }
             }

@@ -13,6 +13,8 @@ class LeafRepositoryImpl
 
     override suspend fun addLeaf(leaf: LeafModel) = leafsDao.addLeaf(leaf.toEntity())
 
+    override suspend fun updateLeaf(leaf: LeafModel) = leafsDao.updateLeaf(leaf.toEntity())
+
     private fun map(leaf: LeafEntity): LeafModel = LeafModel(
         id = leaf.id,
         content = leaf.content,

@@ -71,6 +71,13 @@ class BranchesViewModel
         }
     }
 
+    fun updateLeaf(leaf: Branch.LeafView) {
+        viewModelScope.launch {
+            leafRepository.updateLeaf(leaf.toModel())
+            getData(leaf.parentId)
+        }
+    }
+
     private fun openDialog(root: Int) {
         mutableAddDialogState.value = AddDialogState.Open(root, String.empty())
     }

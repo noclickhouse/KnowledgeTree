@@ -21,8 +21,8 @@ fun LeafItem(
             .padding(vertical = 8.dp, horizontal = 16.dp),
         backgroundColor =
         when (isCompleted) {
-            true -> MaterialTheme.colors.primary
-            false -> MaterialTheme.colors.secondary
+            true -> MaterialTheme.colors.secondary
+            false -> MaterialTheme.colors.primary
         },
         onClick = onClick
     )

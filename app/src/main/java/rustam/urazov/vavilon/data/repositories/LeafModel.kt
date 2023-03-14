@@ -10,6 +10,7 @@ data class LeafModel(
 )
 
 fun LeafModel.toEntity(): LeafEntity = LeafEntity(
+    id = id,
     content = content,
     isCompleted = isCompleted,
     parentId = parentId
