@@ -14,10 +14,14 @@ class BranchRepositoryImpl
 
     override suspend fun addBranch(branch: BranchModel) = branchesDao.addBranch(branch.toEntity())
 
+    override suspend fun updateBranch(branch: BranchModel) =
+        branchesDao.updateBranch(branch.toEntity())
+
     private fun map(branch: BranchEntity): BranchModel = BranchModel(
         id = branch.id,
         title = branch.title,
-        parentId = branch.parentId
+        parentId = branch.parentId,
+        percentage = branch.percentage
     )
 
 }

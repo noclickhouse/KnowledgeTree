@@ -34,6 +34,7 @@ class BranchesViewModel
         MutableStateFlow(AddDialogState.Closed)
     val addDialogState: StateFlow<AddDialogState> = mutableAddDialogState.asStateFlow()
 
+
     fun getData(root: Int) {
         getBranches(root)
         getLeafs(root)
@@ -41,7 +42,25 @@ class BranchesViewModel
 
     private fun getBranches(root: Int) {
         viewModelScope.launch {
-            mutableBranches.value = branchRepository.getBranches(root).map { map(it) }
+            mutableBranches.value = branchRepository.getBranches(root).map {
+                val childBranches = branchRepository.getBranches(it.id)
+                val childLeafs = leafRepository.getLeafs(it.id)
+                val count = childBranches.size + childLeafs.size
+                var percentage = 0f
+                childBranches.forEach { child ->
+                    percentage += child.percentage / count
+                }
+                childLeafs.forEach { leaf ->
+                    percentage += if (leaf.isCompleted) 1f / count else 0f
+                }
+                val branch = BranchModel(
+                    id = it.id,
+                    title = it.title,
+                    parentId = it.parentId,
+                    percentage = percentage
+                )
+                map(branch)
+            }
         }
     }
 
@@ -93,7 +112,8 @@ class BranchesViewModel
     private fun map(branch: BranchModel): Branch.BranchView = Branch.BranchView(
         id = branch.id,
         title = branch.title,
-        parentId = branch.parentId
+        parentId = branch.parentId,
+        percentage = branch.percentage
     )
 
     private fun map(leaf: LeafModel): Branch.LeafView = Branch.LeafView(

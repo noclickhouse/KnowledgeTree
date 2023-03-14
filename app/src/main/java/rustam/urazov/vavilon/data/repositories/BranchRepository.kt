@@ -6,4 +6,6 @@ interface BranchRepository {
 
     suspend fun addBranch(branch: BranchModel)
 
+    suspend fun updateBranch(branch: BranchModel)
+
 }

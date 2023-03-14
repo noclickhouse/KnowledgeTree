@@ -9,7 +9,8 @@ class LeafRepositoryImpl
     private val leafsDao: LeafsDao
 ) : LeafRepository {
 
-    override suspend fun getLeafs(root: Int): List<LeafModel> = leafsDao.getLeafs(root).map { map(it) }
+    override suspend fun getLeafs(root: Int): List<LeafModel> =
+        leafsDao.getLeafs(root).map { map(it) }
 
     override suspend fun addLeaf(leaf: LeafModel) = leafsDao.addLeaf(leaf.toEntity())
 
@@ -21,5 +22,4 @@ class LeafRepositoryImpl
         isCompleted = leaf.isCompleted,
         parentId = leaf.parentId
     )
-
 }

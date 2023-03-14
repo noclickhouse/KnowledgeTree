@@ -81,7 +81,6 @@ fun TreeScreen(
             viewModel.saveLeaf(
                 Branch.LeafView(
                     content = it,
-                    isCompleted = false,
                     parentId = id
                 )
             )

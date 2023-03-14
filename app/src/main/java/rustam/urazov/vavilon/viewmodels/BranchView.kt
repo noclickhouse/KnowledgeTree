@@ -7,12 +7,13 @@ sealed class Branch {
     data class BranchView(
         val id: Int = 0,
         val title: String,
-        val parentId: Int
+        val parentId: Int,
+        val percentage: Float = 0f
     )
     data class LeafView(
         val id: Int = 0,
         val content: String,
-        val isCompleted: Boolean,
+        val isCompleted: Boolean = false,
         val parentId: Int
     )
 }
@@ -20,7 +21,8 @@ sealed class Branch {
 fun Branch.BranchView.toModel(): BranchModel = BranchModel(
     id = id,
     title = title,
-    parentId = parentId
+    parentId = parentId,
+    percentage = percentage
 )
 
 fun Branch.LeafView.toModel(): LeafModel = LeafModel(
