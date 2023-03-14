@@ -2,8 +2,8 @@ package rustam.urazov.vavilon.data.repositories
 
 interface LeafRepository {
 
-    suspend fun getLeafs(root: Int): List<Leaf>
+    suspend fun getLeafs(root: Int): List<LeafModel>
 
-    suspend fun addLeaf(leaf: Leaf)
+    suspend fun addLeaf(leaf: LeafModel)
 
 }

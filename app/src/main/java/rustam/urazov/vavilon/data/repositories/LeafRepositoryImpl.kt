@@ -9,11 +9,11 @@ class LeafRepositoryImpl
     private val leafsDao: LeafsDao
 ) : LeafRepository {
 
-    override suspend fun getLeafs(root: Int): List<Leaf> = leafsDao.getLeafs(root).map { map(it) }
+    override suspend fun getLeafs(root: Int): List<LeafModel> = leafsDao.getLeafs(root).map { map(it) }
 
-    override suspend fun addLeaf(leaf: Leaf) = leafsDao.addLeaf(leaf.toEntity())
+    override suspend fun addLeaf(leaf: LeafModel) = leafsDao.addLeaf(leaf.toEntity())
 
-    private fun map(leaf: LeafEntity): Leaf = Leaf(
+    private fun map(leaf: LeafEntity): LeafModel = LeafModel(
         id = leaf.id,
         content = leaf.content,
         isCompleted = leaf.isCompleted,
