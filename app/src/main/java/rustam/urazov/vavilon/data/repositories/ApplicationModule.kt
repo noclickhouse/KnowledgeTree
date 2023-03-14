@@ -23,6 +23,10 @@ class ApplicationModule {
 
     @Provides
     @Singleton
+    fun provideLeafRepository(leafRepository: LeafRepositoryImpl): LeafRepository = leafRepository
+
+    @Provides
+    @Singleton
     fun provideKnowledgeTreeDatabase(@ApplicationContext context: Context) =
         Room.databaseBuilder(context, KnowledgeTreeDatabase::class.java, KnowledgeTreeDatabase.DB_NAME)
             .allowMainThreadQueries()
