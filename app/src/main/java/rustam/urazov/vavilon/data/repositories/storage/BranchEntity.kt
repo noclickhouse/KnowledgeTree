@@ -19,5 +19,5 @@ data class BranchEntity(
 
 fun BranchEntity.Companion.empty(): BranchEntity = BranchEntity(
     title = "",
-    parentId = -1
+    parentId = -2
 )

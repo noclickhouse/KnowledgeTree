@@ -6,9 +6,12 @@ import androidx.compose.material.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import rustam.urazov.vavilon.components.models.AddDialogState
+import rustam.urazov.vavilon.core.empty
+import rustam.urazov.vavilon.ui.theme.VavilonTheme
 
 @Composable
 fun AddView(
@@ -31,6 +34,20 @@ fun AddView(
                     onSave(dialogState.title)
                 }
             }
+        }
+    }
+}
+
+@Composable
+@Preview
+fun AddViewPreview() {
+    VavilonTheme {
+        AddView(
+            dialogState = AddDialogState.Open(-1, String.empty()),
+            onTextChange = { },
+            onSave = { }
+        ) {
+
         }
     }
 }

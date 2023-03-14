@@ -12,4 +12,6 @@ abstract class KnowledgeTreeDatabase : RoomDatabase() {
 
     abstract fun getBranchesDao(): BranchesDao
 
+    abstract fun getLeafsDao(): LeafsDao
+
 }

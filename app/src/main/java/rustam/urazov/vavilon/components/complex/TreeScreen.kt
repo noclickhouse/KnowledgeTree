@@ -25,10 +25,9 @@ fun TreeScreen(
     id: Int
 ) {
     val branches by viewModel.branches.collectAsState()
+    val dialogState by viewModel.addDialogState.collectAsState()
 
     viewModel.getBranches(id)
-
-    val dialogState by viewModel.addDialogState.collectAsState()
 
     BoxWithConstraints(
         modifier = Modifier.padding(16.dp)
