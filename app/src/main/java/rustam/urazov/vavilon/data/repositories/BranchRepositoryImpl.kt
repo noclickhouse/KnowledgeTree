@@ -9,7 +9,7 @@ class BranchRepositoryImpl
     private val branchesDao: BranchesDao
 ) : BranchRepository {
 
-    override suspend fun getBranches(root: Int?): List<Branch> =
+    override suspend fun getBranches(root: Int): List<Branch> =
         branchesDao.getBranches(root).map { map(it) }
 
     override suspend fun addBranch(branch: Branch) = branchesDao.addBranch(branch.toEntity())

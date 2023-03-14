@@ -25,7 +25,7 @@ class BranchesViewModel
         MutableStateFlow(AddDialogState.Closed)
     val addDialogState: StateFlow<AddDialogState> = mutableAddDialogState.asStateFlow()
 
-    fun getBranches(root: Int?) {
+    fun getBranches(root: Int) {
         viewModelScope.launch {
             mutableBranches.value = branchRepository.getBranches(root).map { map(it) }
         }
