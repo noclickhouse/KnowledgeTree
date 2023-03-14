@@ -17,7 +17,8 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 fun AddView(
     dialogState: AddDialogState,
     onTextChange: (String) -> Unit,
-    onSave: (String) -> Unit,
+    onBranchSave: (String) -> Unit,
+    onLeafSave: (String) -> Unit,
     onClose: () -> Unit
 ) {
     if (dialogState is AddDialogState.Open) {
@@ -31,7 +32,10 @@ fun AddView(
                     onValueChange = onTextChange
                 )
                 SaveButton {
-                    onSave(dialogState.title)
+                    onBranchSave(dialogState.title)
+                }
+                SaveButton {
+                    onLeafSave(dialogState.title)
                 }
             }
         }
@@ -45,7 +49,8 @@ fun AddViewPreview() {
         AddView(
             dialogState = AddDialogState.Open(-1, String.empty()),
             onTextChange = { },
-            onSave = { }
+            onBranchSave = { },
+            onLeafSave = { }
         ) {
 
         }

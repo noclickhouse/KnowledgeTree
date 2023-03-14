@@ -62,10 +62,19 @@ fun TreeScreen(
     AddView(
         dialogState = dialogState,
         onTextChange = { viewModel.onDialogTextChanged(id, it) },
-        onSave = {
+        onBranchSave = {
             viewModel.saveBranch(
                 Branch.BranchView(
                     title = it,
+                    parentId = id
+                )
+            )
+        },
+        onLeafSave = {
+            viewModel.saveLeaf(
+                Branch.LeafView(
+                    content = it,
+                    isCompleted = false,
                     parentId = id
                 )
             )
