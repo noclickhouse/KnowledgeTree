@@ -8,9 +8,9 @@ import androidx.room.Query
 interface LeafsDao {
 
     @Query("SELECT * FROM ${LeafEntity.TABLE_NAME} WHERE parentId LIKE :root")
-    fun getLeafs(root: Int): List<LeafEntity>
+    suspend fun getLeafs(root: Int): List<LeafEntity>
 
     @Insert
-    fun addLeaf(leaf: LeafEntity)
+    suspend fun addLeaf(leaf: LeafEntity)
 
 }
