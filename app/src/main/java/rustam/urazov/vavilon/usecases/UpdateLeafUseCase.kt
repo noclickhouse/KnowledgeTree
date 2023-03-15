@@ -6,7 +6,7 @@ import rustam.urazov.vavilon.data.repositories.LeafRepository
 import javax.inject.Inject
 
 class UpdateLeafUseCase
- constructor(
+@Inject constructor(
     private val leafRepository: LeafRepository
 ) : UseCase<Unit, LeafModel>() {
 

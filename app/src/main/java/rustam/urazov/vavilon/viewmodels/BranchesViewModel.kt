@@ -6,20 +6,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
-import kotlinx.coroutines.launch
 import rustam.urazov.vavilon.components.models.AddDialogState
 import rustam.urazov.vavilon.core.empty
 import rustam.urazov.vavilon.data.repositories.BranchModel
-import rustam.urazov.vavilon.data.repositories.BranchRepository
 import rustam.urazov.vavilon.data.repositories.LeafModel
-import rustam.urazov.vavilon.data.repositories.LeafRepository
+import rustam.urazov.vavilon.usecases.*
 import javax.inject.Inject
 
 @HiltViewModel
 class BranchesViewModel
 @Inject constructor(
-    private val branchRepository: BranchRepository,
-    private val leafRepository: LeafRepository
+    private val getBranches: GetBranchesUseCase,
+    private val addBranch: AddBranchUseCase,
+    private val getLeafs: GetLeafsUseCase,
+    private val addLeaf: AddLeafUseCase,
+    private val updateLeaf: UpdateLeafUseCase
 ) : ViewModel() {
 
     private val mutableBranches: MutableStateFlow<List<Branch.BranchView>> =
@@ -34,67 +35,57 @@ class BranchesViewModel
         MutableStateFlow(AddDialogState.Closed)
     val addDialogState: StateFlow<AddDialogState> = mutableAddDialogState.asStateFlow()
 
-
     fun getData(root: Int) {
         getBranches(root)
         getLeafs(root)
     }
 
-    private fun getBranches(root: Int) {
-        viewModelScope.launch {
-            mutableBranches.value = branchRepository.getBranches(root).map {
-                val childBranches = branchRepository.getBranches(it.id)
-                val childLeafs = leafRepository.getLeafs(it.id)
-                val count = childBranches.size + childLeafs.size
-                var percentage = 0f
-                childBranches.forEach { child ->
-                    percentage += child.percentage / count
+    private fun getBranches(root: Int) = getBranches(root, viewModelScope) {
+        mutableBranches.value = it.map { branch ->
+            var percentage = 0f
+            getBranches(branch.id, viewModelScope) { branches ->
+                val childBranches = branches
+                getLeafs(branch.id, viewModelScope) { leafs ->
+                    val childLeafs = leafs
+                    val count = childBranches.size + childLeafs.size
+                    childBranches.forEach { child ->
+                        percentage += child.percentage / count
+                    }
+                    childLeafs.forEach { leaf ->
+                        percentage += if (leaf.isCompleted) 1f / count else 0f
+                    }
                 }
-                childLeafs.forEach { leaf ->
-                    percentage += if (leaf.isCompleted) 1f / count else 0f
-                }
-                val branch = BranchModel(
-                    id = it.id,
-                    title = it.title,
-                    parentId = it.parentId,
-                    percentage = percentage
-                )
-                map(branch)
             }
+            val branchResult = BranchModel(
+                id = branch.id,
+                title = branch.title,
+                parentId = branch.parentId,
+                percentage = percentage
+            )
+            map(branchResult)
         }
     }
 
-    private fun getLeafs(root: Int) {
-        viewModelScope.launch {
-            mutableLeafs.value = leafRepository.getLeafs(root).map { map(it) }
-        }
+    private fun getLeafs(root: Int) = getLeafs(root, viewModelScope) {
+        mutableLeafs.value = it.map { leaf -> map(leaf) }
     }
 
     fun addBranch(root: Int) {
         openDialog(root)
     }
 
-    fun saveBranch(branch: Branch.BranchView) {
-        viewModelScope.launch {
-            branchRepository.addBranch(branch.toModel())
-            getData(branch.parentId)
-            closeDialog()
-        }
+    fun saveBranch(branch: Branch.BranchView) = addBranch(branch.toModel(), viewModelScope) {
+        getData(branch.parentId)
+        closeDialog()
     }
 
-    fun saveLeaf(leaf: Branch.LeafView) {
-        viewModelScope.launch {
-            leafRepository.addLeaf(leaf.toModel())
-            getData(leaf.parentId)
-            closeDialog()
-        }
+    fun saveLeaf(leaf: Branch.LeafView) = addLeaf(leaf.toModel(), viewModelScope) {
+        getData(leaf.parentId)
+        closeDialog()
     }
 
-    fun updateLeaf(leaf: Branch.LeafView) {
-        viewModelScope.launch {
-            leafRepository.updateLeaf(leaf.toModel())
-            getData(leaf.parentId)
-        }
+    fun updateLeaf(leaf: Branch.LeafView) = updateLeaf(leaf.toModel(), viewModelScope) {
+        getData(leaf.parentId)
     }
 
     private fun openDialog(root: Int) {
