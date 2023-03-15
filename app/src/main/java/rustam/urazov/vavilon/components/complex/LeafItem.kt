@@ -19,6 +19,11 @@ fun LeafItem(
         text = text,
         modifier = Modifier
             .padding(vertical = 8.dp, horizontal = 16.dp),
+        textColor =
+        when (isCompleted) {
+            true -> MaterialTheme.colors.primary
+            false -> MaterialTheme.colors.secondary
+        },
         backgroundColor =
         when (isCompleted) {
             true -> MaterialTheme.colors.secondary

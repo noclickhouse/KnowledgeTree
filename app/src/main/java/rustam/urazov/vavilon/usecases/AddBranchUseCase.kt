@@ -6,7 +6,7 @@ import rustam.urazov.vavilon.data.repositories.BranchRepository
 import javax.inject.Inject
 
 class AddBranchUseCase
-@Inject constructor(
+ constructor(
     private val branchRepository: BranchRepository
 ) : UseCase<Unit, BranchModel>() {
 

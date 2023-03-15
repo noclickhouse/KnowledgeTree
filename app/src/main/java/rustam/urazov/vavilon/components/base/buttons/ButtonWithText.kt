@@ -41,6 +41,7 @@ fun ButtonWithText(
     text: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    textColor: Color = MaterialTheme.colors.secondary,
     backgroundColor: Color = MaterialTheme.colors.primary,
     enabled: Boolean = true
 ) {
@@ -52,7 +53,7 @@ fun ButtonWithText(
         colors = ButtonDefaults.buttonColors(backgroundColor = backgroundColor),
         contentPadding = PaddingValues(vertical =  16.dp, horizontal = 32.dp)
     ) {
-        LargeText(text = text)
+        LargeText(text = text, color = textColor)
     }
 }
 
