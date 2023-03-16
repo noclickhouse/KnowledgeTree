@@ -51,7 +51,7 @@ fun TreeScreen(
             viewModel.saveBranch(
                 Branch.BranchView(
                     title = it,
-                    parentId = id
+                    parent = id
                 )
             )
         },
@@ -59,7 +59,7 @@ fun TreeScreen(
             viewModel.saveLeaf(
                 Branch.LeafView(
                     content = it,
-                    parentId = id
+                    parent = id
                 )
             )
         },

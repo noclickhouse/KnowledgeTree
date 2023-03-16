@@ -39,7 +39,7 @@ fun BranchesList(
                         id = leaf.id,
                         content = leaf.content,
                         isCompleted = !leaf.isCompleted,
-                        parentId = leaf.parentId
+                        parent = leaf.parentId
                     )
                 )
             }
