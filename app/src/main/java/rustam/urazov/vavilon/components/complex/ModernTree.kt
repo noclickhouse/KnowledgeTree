@@ -37,9 +37,9 @@ fun ModernTree() {
             .height(10000.dp)
     ) {
         val branches: List<Branch> = listOf(
-            Branch.BranchView(1, "asd", 0, 0f),
-            Branch.BranchView(2, "sdf", 0, 0f),
-            Branch.BranchView(3, "qwe", 1, 0f),
+            Branch.BranchView(1, "asd", 0, 0, 0f),
+            Branch.BranchView(2, "sdf", 0, 0,0f),
+            Branch.BranchView(3, "qwe", 1, 0, 0f),
             Branch.LeafView(1, "dfg", false, 3),
             Branch.LeafView(2, "fgh", false, 2)
         )

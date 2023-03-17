@@ -8,6 +8,7 @@ sealed class Branch(val parentId: Int) {
         val id: Int = 0,
         val title: String,
         val parent: Int,
+        val previousId: Int,
         val percentage: Float = 0f
     ) : Branch(parent)
     data class LeafView(

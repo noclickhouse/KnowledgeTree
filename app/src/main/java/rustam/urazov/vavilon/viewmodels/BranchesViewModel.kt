@@ -104,7 +104,8 @@ class BranchesViewModel
         id = branch.id,
         title = branch.title,
         parent = branch.parentId,
-        percentage = branch.percentage
+        percentage = branch.percentage,
+        previousId = 0
     )
 
     private fun map(leaf: LeafModel): Branch.LeafView = Branch.LeafView(

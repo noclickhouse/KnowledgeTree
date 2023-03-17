@@ -26,7 +26,8 @@ fun LargeText(
         modifier = modifier,
         color = color,
         fontSize = 24.sp,
-        textAlign = textAlign
+        textAlign = textAlign,
+        maxLines = 1
     )
 }
 

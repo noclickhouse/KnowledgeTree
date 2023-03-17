@@ -11,11 +11,12 @@ import rustam.urazov.vavilon.ui.theme.VavilonTheme
 @Composable
 fun BranchItem(
     text: String,
+    modifier: Modifier = Modifier,
     onClick: () -> Unit,
 ) {
     ButtonWithText(
         text = text,
-        modifier = Modifier.padding(vertical = 8.dp, horizontal = 16.dp),
+        modifier = modifier.padding(vertical = 8.dp, horizontal = 16.dp),
         onClick = onClick
     )
 }
